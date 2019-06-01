@@ -4,3 +4,18 @@ Minha versão do projeto proposto pelo professor Nunes. O trabalho era: criar um
 ## ToDo
 - [ ] Consertar os erros ao "deslogar" da conta de administrador; e
 - [ ] Inserir dados (preços, horários, se o estacionamento é aberto ou fechado, endereço etc.) na home page.
+
+## Créditos (credits)
+Diversos recursos foram usados, estes serão homenageados aqui:
+- w3schools.com
+- hostinger.com
+- php.net
+- stackoverflow.com
+- getbootstrap.com
+- pedreira.com
+- codewithawa.com
+- intechgrity.com
+- codeproject.com
+- tutorialspoint.com
+- youtube.com
+- professor
