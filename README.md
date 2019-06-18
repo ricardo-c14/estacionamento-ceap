@@ -4,7 +4,7 @@ Minha versão do projeto proposto pelo professor Nunes, auxiliado, no desenvolvi
 ## ToDo
 - [ ] Consertar os erros ao "deslogar" da conta de administrador;
 - [x] Inserir dados (preços, horários, se o estacionamento é aberto ou fechado, endereço etc.) na home page; e
-- [ ] Adicionar gráficos de visitas na home page.
+- [x] Adicionar gráficos de visitas na home page.
 
 ## Créditos (credits)
 Diversos recursos foram usados, estes serão homenageados aqui:
