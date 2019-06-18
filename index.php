@@ -76,7 +76,8 @@ function drawBasic() {
 		]);
 
     var options = {
-    	title: 'Número de visitas ao CEAP',
+		title: 'Número de visitas ao CEAP',
+		height: 600,
         hAxis: {
           title: 'Hora do dia',
           format: 'h:mm a',
