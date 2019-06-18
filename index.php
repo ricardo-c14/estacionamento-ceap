@@ -19,6 +19,7 @@ $login_cookie = $_COOKIE['username'];
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <style type="text/css">
@@ -48,6 +49,53 @@ h1, h2 {
 }
 
 </style>
+
+<script type="text/javascript">
+	google.charts.load('current', {
+		'packages':['corechart', 'bar']});
+
+	google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+    var data = new google.visualization.DataTable();
+	data.addColumn('timeofday', 'Hora do dia');
+	data.addColumn('number', 'Número de visitas');
+
+	data.addRows([
+		[{v: [7, 0, 0], f: '7h'}, 4],
+		[{v: [8, 0, 0], f: '8h'}, 10],
+		[{v: [9, 0, 0], f: '9h'}, 8],
+		[{v: [10, 0, 0], f: '10h'}, 5],
+		[{v: [11, 0, 0], f: '11h'}, 6],
+		[{v: [12, 0, 0], f: '12h'}, 2],
+		[{v: [13, 0, 0], f: '13h'}, 6],
+		[{v: [14, 0, 0], f: '14h'}, 4],
+		[{v: [15, 0, 0], f: '15h'}, 3],
+		[{v: [16, 0, 0], f: '16h'}, 2],
+		[{v: [17, 0, 0], f: '5'}, 1]
+		]);
+
+    var options = {
+    	title: 'Número de visitas ao CEAP',
+        hAxis: {
+          title: 'Hora do dia',
+          format: 'h:mm a',
+          viewWindow: {
+            min: [6, 30, 0],
+            max: [19, 0, 0]
+          }
+        },
+        vAxis: {
+          title: 'Número de veículos'
+        }
+      };
+
+    var chart = new google.visualization.ColumnChart(
+        document.getElementById('grafico_div'));
+
+    chart.draw(data, options);
+    }
+</script>
 
 <body>
 	<?php
@@ -150,6 +198,9 @@ h1, h2 {
 		</div>
 	</div>
 	<br>
+	
+	<div id="grafico_div"></div>
+
 </div>
 </body>
 </html>
