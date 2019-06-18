@@ -14,6 +14,11 @@ $login_cookie = $_COOKIE['username'];
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="bs/bootstrap.min.css">
+
+	<script src="extensions/multiple-selection-row/bootstrap-table-multiple-selection-row.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <style type="text/css">
@@ -96,12 +101,55 @@ h1, h2 {
 		}
 
 	?>
-<div class="row">
-	<div class="col-sm-6">
-		<div class="card">
-			<div class="card-body">
+
+<div class="container-fluid">
+	<br>
+	<div class="row">
+		<div class="col-sm-3 d-flex">
+			<div class="card card-body flex-fill">
 				<h5 class="card-title">Valores</h5>
-				<p class="card-text">
+				<p class="card-text">Das sete até 14 horas - R$10,00<br>
+					Das 15 até 23 horas - R$15,00<br>
+					Das 24 até sete horas - R$20,00
+				</p>
+			</div>
+		</div>
+
+		<div class="col-sm-3 d-flex">
+			<div class="card card-body flex-fill">
+				<h5 class="card-title">Formas de pagamento</h5>
+				<p class="card-text">Pelo aplicativo oficial do estabelecimento;<br>No caixa assistido; ou<br>Pelo totem de dentro do CEAP.</p>
+			</div>
+		</div>
+
+		<div class="col-sm-3 d-flex">
+			<div class="card card-body flex-fill">
+				<h5 class="card-title">Endereço</h5>
+				<p class="card-text">Praça Nina Rodrigues, 151/153 - Liberdade, São Paulo - SP, 01517-030</p>
+				<a class="btn btn-primary" target="_blank" href="https://www.google.com.br/maps/place/INSS/@-23.5607163,-46.6351786,16z/">Acessar</a>
+			</div>
+		</div>
+
+		<div class="col-sm-3 d-flex">
+			<div class="card card-body flex-fill">
+				<h5 class="card-title">Tipo do estacionamento</h5>
+				<p class="card-text">Estacionamento fechado (com cobertura).</p><br>
+				<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Ver imagem do estacionamento</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<img src="https://images.pexels.com/photos/6517/parking-multi-storey-car-park.jpg" class="img-responsive" style="width: 100%;">
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
 </div>
 </body>
 </html>
