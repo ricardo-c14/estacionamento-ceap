@@ -19,3 +19,5 @@ Diversos recursos foram usados, estes serão homenageados aqui:
 - tutorialspoint.com
 - youtube.com
 - professor
+- images.pexels.com
+- codigofonte.com.br
