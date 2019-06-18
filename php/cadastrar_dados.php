@@ -68,7 +68,7 @@ $login_cookie = $_COOKIE['username'];
 
 				<div class="form-group">
 					<label for="rg">RG:</label>
-					<input type="text" class="form-control" id="rg" placeholder="xx.xxx.xxx-x" name="rg" required maxlength="12">
+					<input type="text" class="form-control" id="rg" placeholder="xx.xxx.xxx-x" name="rg" required maxlength="12" onkeypress="formatar(\'##.###.###-#\', this)">
 					<div class="invalid-feedback">* é necessário inserir o RG do proprietário.</div>
 				</div>
 
@@ -93,7 +93,7 @@ $login_cookie = $_COOKIE['username'];
 
 				<div class="form-group">
 					<label for="placa">Placa:</label>
-					<input type="text" class="form-control" name="placa" id="placa" placeholder="xxx-XXXX" required maxlength="8">
+					<input type="text" class="form-control" name="placa" id="placa" placeholder="xxx-XXXX" required maxlength="8" onKeyPress="formatar(\'###-####\', this)">
 					<div class="invalid-feedback">* é necessário inserir a placa do veículo.</div>
 				</div>
 
