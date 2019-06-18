@@ -15,6 +15,7 @@ $login_cookie = $_COOKIE['username'];
 	<link rel="stylesheet" href="../bs/bootstrap.min.css">
 
 	<script src="../js/format.js"></script>
+	<script src="../js/notificacao.js"></script>
 </head>
 
 <style type="text/css">
@@ -98,22 +99,15 @@ $login_cookie = $_COOKIE['username'];
 				</div>
 
 				<center>
-					<button type="submit" class="btn btn-primary">Enviar dados</button>
+					<button type="submit" class="btn btn-primary" onclick="enviado()">Enviar dados</button>
 				</center>
 			</form>
 	</div>';
 		} else {
-			echo '<div class="page-wrap d-flex flex-row align-items-center" style="min-height: 100vh">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-md-12 text-center">
-							<span class="display-1 d-block">404</span>
-							<div class="mb-4 lead">A página que você estava procurando está inacessível ou você não tem as permissões necessárias para acessá-la.<br>Você pode tentar <a href="../admin.html">entrar como administrador</a> ou <a href="../index.php">retornar à página inicial</a>.
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>';
+			echo '
+			<script>
+				window.location = "../html/error404.html";
+			</script>';
 			}
 	?>
 
