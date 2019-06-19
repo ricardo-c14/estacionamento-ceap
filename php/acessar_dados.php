@@ -18,7 +18,6 @@ $sql = "SELECT proprietario.proprietario_id, proprietario.nome, proprietario.rg,
 
 $result = $conn -> query($sql);
 
-error_reporting(E_ERROR);
 $login_cookie = $_COOKIE['username'];
 
 ?>
@@ -97,7 +96,9 @@ $login_cookie = $_COOKIE['username'];
 							<th scope="col">HORÁRIO ENTRADA</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody>';
+					while($row = mysqli_fetch_array($result)){
+						echo '
 						<tr>
 							<tr>
 								<th scope="row">' . $row["proprietario_id"]. '</th>' . '
@@ -108,9 +109,9 @@ $login_cookie = $_COOKIE['username'];
 								<td>' . $row["marca"] . '</td>' . '
 								<td>' . $row["placa"] . '</td>' . '
 								<td>' . $row["data"] . '</td>' . '
-
 							</tr>
 						</tr>
+						';} echo '
 					</tbody>
 				</table>
 			</div>
