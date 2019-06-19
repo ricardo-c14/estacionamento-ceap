@@ -99,7 +99,9 @@ $login_cookie = $_COOKIE['username'];
 				</div>
 
 				<center>
-					<button type="submit" class="btn btn-primary" onclick="enviado()">Enviar dados</button>
+					<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'notif\').innerHTML = \'Os dados foram enviados\'">Enviar dados</button>
+					<br>
+					<div id="notif"></div>
 				</center>
 			</form>
 	</div>';
