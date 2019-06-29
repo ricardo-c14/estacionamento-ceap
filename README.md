@@ -5,6 +5,12 @@ Minha versão do projeto proposto pelo professor Nunes, auxiliado, no desenvolvi
 ![Página principal](screenshots/dashboard.jpg)
 Página principal, como administrador.
 
+![Página de cadastro](screenshots/pagina_de_cadastro.jpg)
+Página de cadastro de dados. Acessada apenas pelo administrador, caso o usuário não tenha permissão, ele é redirecionado para uma página 404.
+
+![Página de acesso de dados](screenshots/pagina_de_acesso_de_dados.jpg)
+Página de acesso de dados. Acessada apenas pelo administrador, caso o usuário não tenha permissão, ele é redirecionado para uma página 404.
+
 ## ToDo
 - [ ] Consertar os erros ao "deslogar" da conta de administrador;
 - [x] Inserir dados (preços, horários, se o estacionamento é aberto ou fechado, endereço etc.) na home page; e
