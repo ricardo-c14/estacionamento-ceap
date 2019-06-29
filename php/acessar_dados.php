@@ -48,7 +48,6 @@ $login_cookie = $_COOKIE['username'];
 <body>
 	<?php
 		if (isset($login_cookie)){
-				$row = $result -> fetch_assoc();
 				echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
 				<span class="navbar-brand">Estacionamento CEAP</span>
