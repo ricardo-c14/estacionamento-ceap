@@ -13,7 +13,9 @@ Página de acesso de dados. Acessada apenas pelo administrador, caso o usuário 
 
 ## ToDo
 - [ ] Consertar os erros ao "deslogar" da conta de administrador;
-- [x] Inserir dados (preços, horários, se o estacionamento é aberto ou fechado, endereço etc.) na home page; e
+- [ ] Consertar erros de edição de dados;
+- [ ] Controlar o gráfico à medida da adição de dados;
+- [x] Inserir dados (preços, horários, se o estacionamento é aberto ou fechado, endereço etc.) na homepage; e
 - [x] Adicionar gráficos de visitas na home page.
 
 ## Créditos (credits)
