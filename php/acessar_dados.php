@@ -8,7 +8,7 @@ $dbname = "estacionamento";
 
 $conn = new mysqli($server, $user, $pass, $dbname);
 
-if ($conn -> connect_error){
+if ($conn->connect_error){
 	echo "Erro na conexão: " . mysqli_error($conn);
 }
 
@@ -29,9 +29,7 @@ $login_cookie = $_COOKIE['username'];
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="extensions/multiple-selection-row/bootstrap-table-multiple-selection-row.css">
 
-	<script src="extensions/multiple-selection-row/bootstrap-table-multiple-selection-row.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -95,27 +93,27 @@ $login_cookie = $_COOKIE['username'];
 							<th scope="col">HORÁRIO ENTRADA</th>
 						</tr>
 					</thead>
-					<tbody>';
+					<tbody id="tbody0">';
 					while($row = mysqli_fetch_array($result)){
 						echo '
 						<tr>
-							<tr>
-								<th scope="row">' . $row["proprietario_id"]. '</th>' . '
-								<td>' . $row["nome"] . '</td>' . '
-								<td>' . $row["rg"] . '</td>' . '
-								<td>' . $row["endereco"] . '</td>' . '
-								<td>' . $row["modelo"] . '</td>' . '
-								<td>' . $row["marca"] . '</td>' . '
-								<td>' . $row["placa"] . '</td>' . '
-								<td>' . $row["data"] . '</td>' . '
-							</tr>
+							<th scope="row" id="id_proprietario" value="' . $row["proprietario_id"]. '">' . $row["proprietario_id"] . '</th>' . '
+							<td>' . $row["nome"] . '</td>' . '
+							<td>' . $row["rg"] . '</td>' . '
+							<td>' . $row["endereco"] . '</td>' . '
+							<td>' . $row["modelo"] . '</td>' . '
+							<td>' . $row["marca"] . '</td>' . '
+							<td>' . $row["placa"] . '</td>' . '
+							<td>' . $row["data"] . '</td>' . '
+							<td><input id="checkboxed" type="checkbox" onclick="editarLinha()"></td>
 						</tr>
 						';} echo '
 					</tbody>
 				</table>
 			</div>
 			<center>
-				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_apagar">Limpar todos os dados</button>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_apagar">Limpar todos os dados</button>
+				<a href="editar_dados.php"><button type="button" class="btn btn-default">Editar dados</button></a>
 			</center>
 			<div class="modal fade" id="modal_apagar">
 				<div class="modal-dialog modal-dialog-centered">
@@ -137,7 +135,9 @@ $login_cookie = $_COOKIE['username'];
 						</div>
 					</div>
 				</div>
-			</div>';
+			</div>
+
+			<script type="text/javascript" src="../js/editarlinhas.js"></script>';
 		} else {
 			echo '
 			<script>
