@@ -1,10 +1,12 @@
 <?php
 
+#error_reporting(E_ERROR);
+
 #banco de dados
 $server = "localhost";
 $user = "root";
 $pass = "";
-$dbname = "estacionamento";
+$dbname = "estacionamento-sam";
 
 $conn = new mysqli($server, $user, $pass, $dbname);
 
@@ -19,7 +21,6 @@ $sql = "SELECT proprietario.proprietario_id, proprietario.nome, proprietario.rg,
 $result = $conn -> query($sql);
 
 $login_cookie = $_COOKIE['username'];
-
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +42,6 @@ $login_cookie = $_COOKIE['username'];
 	}
 
 </style>
-
 
 <body>
 	<?php
@@ -65,6 +65,10 @@ $login_cookie = $_COOKIE['username'];
 
 						<li class="nav-item active">
 							<a class="nav-link" href="../php/acessar_dados.php">Acessar dados <span class="mr-only">(atual)</span></a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="../php/atualizar_dados.php">Atualizar dados</a>
 						</li>
 					</ul>
 
@@ -97,7 +101,7 @@ $login_cookie = $_COOKIE['username'];
 					while($row = mysqli_fetch_array($result)){
 						echo '
 						<tr>
-							<th scope="row" id="id_proprietario" value="' . $row["proprietario_id"]. '">' . $row["proprietario_id"] . '</th>' . '
+							<th scope="row" id="id_proprietario">' . $row["proprietario_id"] . '</th>' . '
 							<td>' . $row["nome"] . '</td>' . '
 							<td>' . $row["rg"] . '</td>' . '
 							<td>' . $row["endereco"] . '</td>' . '
@@ -105,16 +109,17 @@ $login_cookie = $_COOKIE['username'];
 							<td>' . $row["marca"] . '</td>' . '
 							<td>' . $row["placa"] . '</td>' . '
 							<td>' . $row["data"] . '</td>' . '
-							<td><input id="checkboxed" type="checkbox" onclick="editarLinha()"></td>
 						</tr>
 						';} echo '
+					
 					</tbody>
 				</table>
 			</div>
 			<center>
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_apagar">Limpar todos os dados</button>
-				<a href="editar_dados.php"><button type="button" class="btn btn-default">Editar dados</button></a>
+				<a href="atualizar_dados.php"><button type="button" class="btn btn-default" id="editar_dados">Editar dados</button></a>
 			</center>
+			</form>
 			<div class="modal fade" id="modal_apagar">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">

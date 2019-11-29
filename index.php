@@ -100,7 +100,6 @@ function drawBasic() {
 
 <body>
 	<?php
-
 		if (isset($login_cookie)){
 			echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<span class="navbar-brand">Estacionamento CEAP</span>
@@ -111,7 +110,7 @@ function drawBasic() {
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="mr-only">(atual)</span></a>
+						<a class="nav-link" href="/index.php">Home <span class="mr-only">(atual)</span></a>
 					</li>
 
 					<li class="nav-item">
@@ -120,6 +119,10 @@ function drawBasic() {
 
 					<li class="nav-item">
 						<a class="nav-link" href="php/acessar_dados.php">Acessar dados</a>
+					</li>
+
+					<li class="nav-item">	
+						<a class="nav-link" href="php/atualizar_dados.php">Atualizar dados</a>
 					</li>
 				</ul>
 

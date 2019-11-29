@@ -1,14 +1,30 @@
 <?php
 
-error_reporting(E_ERROR);
-$login_cookie = $_COOKIE['username'];
+#banco de dados
+$server = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "estacionamento-sam";
 
+$conn = new mysqli($server, $user, $pass, $dbname);
+
+if ($conn->connect_error){
+	echo "Erro na conexão: " . mysqli_error($conn);
+}
+
+mysqli_select_db($conn, $dbname);
+
+$sql = "SELECT proprietario.proprietario_id, proprietario.nome, proprietario.rg, proprietario.endereco, veiculo.modelo, veiculo.marca, veiculo.placa, veiculo.data FROM proprietario INNER JOIN veiculo ON proprietario.proprietario_id=veiculo_id";
+
+$result = $conn -> query($sql);
+
+$login_cookie = $_COOKIE['username'];
 ?>
 
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-	<title>CEAP | Cadastro de dados</title>
+	<title>CEAP | Edição de dados</title>
 
 	<meta charset="utf-8">
 
@@ -41,16 +57,16 @@ $login_cookie = $_COOKIE['username'];
 					<a class="nav-link" href="../index.php">Home</a>
 				</li>
 
-				<li class="nav-item active">
-					<a class="nav-link" href="../php/cadastrar_dados.php">Cadastrar dados<span class="mr-only">(atual)</span></a>
+				<li class="nav-item">
+					<a class="nav-link" href="../php/cadastrar_dados.php">Cadastrar dados</a>
 				</li>
 
 				<li class="nav-item">
 					<a class="nav-link" href="../php/acessar_dados.php">Acessar dados</a>
 				</li>
 
-				<li class="nav-item">	
-					<a class="nav-link" href="../php/atualizar_dados.php">Atualizar dados</a>
+				<li class="nav-item active">	
+					<a class="nav-link" href="../php/atualizar_dados.php">Atualizar dados<span class="mr-only">(atual)</span></a>
 				</li>
 			</ul>
 				<form class="form-inline my-2 my-lg-0">
@@ -64,11 +80,19 @@ $login_cookie = $_COOKIE['username'];
 			<h2>Dados do proprietário</h2>
 			<br>
 
-			<form method="post" action="../php/conectar.php" class="was-validated" target="enviar_form">
-				<div class="form-group">
-					<label for="nome">Nome:</label>
-					<input type="text" class="form-control" id="nome" placeholder="Nome do proprietário do veículo" name="nome" required>
-					<div class="invalid-feedback">* é necessário inserir o nome do proprietário do veículo.</div>
+			<form method="post" action="../php/atualiza.php" class="was-validated" target="enviar_form">
+				<div class="form-row">
+					<div class="col-md-8">
+						<label for="nome">Nome:</label>
+						<input type="text" class="form-control" id="nome" placeholder="Nome do proprietário do veículo" name="nome" required>
+						<div class="invalid-feedback">* é necessário inserir o nome do proprietário do veículo.</div>
+					</div>
+
+					<div class="col-md-4">
+						<label for="propr_id">ID:</label>
+						<input type="text" class="form-control" id="propr_id" placeholder="Código de identificação do dado" name="propr_id" required>
+						<div class="invalid-feedback">* é necessário inserir o código de identificação do dado.</div>
+					</div>
 				</div>
 
 				<div class="form-group">
@@ -103,7 +127,7 @@ $login_cookie = $_COOKIE['username'];
 				</div>
 
 				<center>
-					<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'notif\').innerHTML = \'Os dados foram enviados\'">Enviar dados</button>
+					<button type="submit" class="btn btn-primary" onclick="document.getElementById(\'notif\').innerHTML = \'Os dados foram atualizados\'">Atualizar dados</button>
 					<br>
 					<div id="notif"></div>
 				</center>
